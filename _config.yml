@@ -1,0 +1,56 @@
+# Welcome to Jekyll!
+#
+
+# Site settings
+title: Voice of Price
+description: |
+  爱上一场认真的消遣
+owner: Price Wang # or company name
+first_published: 2020 # if migrating another site, the year of your first publish
+email: 0428wgx@gmail.com
+baseurl: "/blog" # the subpath of your site, e.g. /blog
+url: "http://pricewang.art" # the base hostname & protocol for your site
+social:
+  twitter: https://twitter.com/WangPrice
+  github: https://github.com/PriceWang
+  linkedin-square: https://linkedin.com/in/guoxinwang
+  facebook-official: https://facebook.com/price.wang
+  #flickr:
+  instagram: https://instagram.com/price_wang
+  #youtube-square:
+  #spotify:
+  #stack-overflow:
+  #vimeo:
+  #reddit:
+  #stubleupon:
+  #delicious:
+  #pied-piper:
+  #digg:
+  #soundcloud:
+  #deviantart:
+  #angellist:
+  #tumblr-square:
+  #stackexchange:
+  weibo: //weibo.com/wangprice
+  email: mailto:0428wgx@gmail.com
+  #trello:
+  #foursquare:
+  #linux:
+  #bitbucket-square:
+  #vk:
+  #slack:
+  #vine:
+  #weixin:
+  #yelp:
+  #skyatlas:
+  #leanpub:
+  #connectdevelop:
+  #ils:
+  #forumbee:
+  #tripadvisor:
+  #amazon:
+
+# Build settings
+markdown: kramdown
+#sass:
+#  style: compressed
