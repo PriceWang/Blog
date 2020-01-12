@@ -8,8 +8,8 @@ description: |
 owner: Price Wang # or company name
 first_published: 2020 # if migrating another site, the year of your first publish
 email: 0428wgx@gmail.com
-baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "http://pricewang.art" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://pricewang.art/blog" # the base hostname & protocol for your site
 social:
   twitter: https://twitter.com/WangPrice
   github: https://github.com/PriceWang
