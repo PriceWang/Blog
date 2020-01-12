@@ -1,2 +1,1 @@
-# PriceWang.github.io
-Personal Blog
+# Personal Blog
