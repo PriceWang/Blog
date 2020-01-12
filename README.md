@@ -1,2 +1,0 @@
-# Blog
-Price's Blog
