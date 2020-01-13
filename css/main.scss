@@ -1259,6 +1259,11 @@ $baseurl: '{{ site.baseurl }}/images';
 			@include wrapper(accent7);
 		}
 
+		&.style6 {
+			@include vendor('background-image', 'url("#{$baseurl}/one_background.jpg")');
+			@include vendor('background-size', '100% 100%');
+		}
+
 		@include breakpoint(medium) {
 			@include padding(4em, 3em);
 		}
@@ -1274,6 +1279,12 @@ $baseurl: '{{ site.baseurl }}/images';
 		@include vendor('transition', 'opacity #{_duration(menu)} ease');
 		opacity: 1;
 		padding-top: 3em;
+
+		@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0))', 'url("#{$baseurl}/blog_background.jpg")'));
+		background-attachment: fixed;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
 
 		&:before {
 			background: rgba(0,0,0,0);
@@ -1293,8 +1304,8 @@ $baseurl: '{{ site.baseurl }}/images';
 		@include vendor('transform', 'translateX(20em)');
 		@include vendor('transition', 'transform #{_duration(menu)} ease');
 		-webkit-overflow-scrolling: touch;
-		background: _palette(accent1, bg);
-		color: _palette(accent1, fg-bold);
+		//background: _palette(white);
+		//color: _palette(white);
 		height: 100%;
 		max-width: 80%;
 		overflow-y: auto;
@@ -1302,7 +1313,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		position: fixed;
 		right: 0;
 		top: 0;
-		width: 20em;
+		width: 10em;
 		z-index: _misc(z-index-base) + 2;
 
 		ul {
@@ -1375,7 +1386,7 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	#header {
 		@include vendor('transition', 'background-color #{_duration(transitions)} ease');
-		background: _palette(bg);
+		background: transparent;
 		height: 3em;
 		left: 0;
 		line-height: 3em;
