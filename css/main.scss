@@ -963,6 +963,8 @@ $baseurl: '{{ site.baseurl }}/images';
 	.spotlight {
 		@include vendor('align-items', 'center');
 		@include vendor('display', 'flex');
+		margin: auto;
+		width: 80%;
 
 		.image {
 			@include vendor('order', '1');
@@ -1027,6 +1029,18 @@ $baseurl: '{{ site.baseurl }}/images';
 			.content {
 				@include padding(3em, 2em);
 			}
+		}
+
+		&.style1 {
+			background-color: transparent;
+		}
+
+		&.style2 {
+			background-color: _palette(bg);
+		}
+
+		&.style3 {
+			color: _palette(accent4, bg);
 		}
 	}
 
@@ -1854,35 +1868,14 @@ $baseurl: '{{ site.baseurl }}/images';
 	  border-width: 1px 0 0 0; 
 	  border-radius: 20px; 
 	} 
-	hr.style1:before { 
-		display: block; 
-		content: ""; 
-		height: 30px; 
-		margin-top: -31px; 
-		border-style: solid; 
-		border-color: #8c8b8b; 
-		border-width: 0 0 1px 0; 
-		border-radius: 20px; 
-	}
 
 	hr.style2 { 
 		height: 30px; 
 		border-style: solid; 
 		border-color: #8c8b8b; 
-		border-width: 1px 0 0 0; 
-		border-radius: 20px;
-		transform: rotate(180deg);
-	} 
-	hr.style2:before { 
-		display: block; 
-		content: ""; 
-		height: 30px; 
-		margin-top: -31px; 
-		border-style: solid; 
-		border-color: #8c8b8b; 
 		border-width: 0 0 1px 0; 
-		border-radius: 20px; 
-	}
+		border-radius: 20px;
+	} 
 
 	hr.style3 { 
 		height: 30px; 

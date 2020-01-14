@@ -28,34 +28,48 @@ layout: landing
 						</div>
 					</section>
 
-				<!--
-
-					two
-
-					<section id="two" class="wrapper alt style2">
+				<!-- Two -->
+					<section id="two" class="wrapper alt style4">
 						<section class="spotlight">
-							<div class="image"><img src="images/pic01.jpg" alt="" /></div><div class="content">
-								<h2>Magna primis lobortis<br />
-								sed ullamcorper</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
+							<div class="image"><img src="images/pic01.png" alt=""/></div>
+							<div class="content">
+								<div style="margin: auto;" class="content">
+									<h2><a href="{{ site.baseurl }}{{ site.posts[0].url }}">{{ site.posts[0].title }}</a></h2>
+									<h4>{{ site.posts[0].time | date: "%Y - %m - %d" }}</h4>
+									<h6>{{ site.posts[0].excerpt | markdownify }}</h6>
+								</div>								
 							</div>
 						</section>
 						<section class="spotlight">
-							<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
-								<h2>Tortor dolore feugiat<br />
-								elementum magna</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
+							<div class="image"><img src="images/pic02.png" alt="" /></div>
+							<div class="content">
+								<div style="margin: auto;" class="content">
+									<h2><a href="{{ site.baseurl }}{{ site.posts[0].url }}">{{ site.posts[1].title }}</a></h2>
+									<h4>{{ site.posts[1].time | date: "%Y - %m - %d" }}</h4>
+									<h6>{{ site.posts[1].excerpt | markdownify }}</h6>
+								</div>
 							</div>
 						</section>
 						<section class="spotlight">
-							<div class="image"><img src="images/pic03.jpg" alt="" /></div><div class="content">
-								<h2>Augue eleifend aliquet<br />
-								sed condimentum</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
+							<div class="image"><img src="images/pic03.png" alt="" /></div>
+							<div class="content">
+								<div style="margin: auto;" class="content">
+									<h2><a href="{{ site.baseurl }}{{ site.posts[0].url }}">{{ site.posts[2].title }}</a></h2>
+									<h4>{{ site.posts[2].time | date: "%Y - %m - %d" }}</h4>
+									<h6>{{ site.posts[2].excerpt | markdownify }}</h6>
+								</div>
 							</div>
 						</section>
 					</section>
 
+					<div style="margin: auto;" class="6u 12u$(medium), wrapper style4">
+						<ul class="actions vertical">
+							<li><a href="{{ site.baseurl }}/all" class="button fit">All Blogs</a></li>
+						</ul>
+					</div>
+
+
+<!--
 					three
 
 					<section id="three" class="wrapper style3 special">

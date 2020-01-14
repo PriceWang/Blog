@@ -6,4 +6,4 @@
 
 ### Beta 1.1
 
-优化all pages页
+新增home页近期文章，优化all pages页
