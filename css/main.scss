@@ -1261,7 +1261,8 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		&.style6 {
 			@include vendor('background-image', 'url("#{$baseurl}/zip_one_background.jpg")');
-			@include vendor('background-size', '100% 100%');
+			@include vendor('background-position', 'center');
+			@include vendor('background-size', 'auto 100%');
 		}
 
 		@include breakpoint(medium) {
