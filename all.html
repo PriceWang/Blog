@@ -3,12 +3,16 @@ layout: page
 title: All posts
 ---
 
+<HR class="style1">
+
 {% assign lastMonth = '' %}
 {% for post in site.posts %}
 {% if post.hide != true %}
 
 
 <div>
+
+
     <div>{{ post.time | date: "%Y.%m.%d" }}</div>
 
     <h2><a href="{{ site.baseurl }}{{ post.url }}" onclick="_gaq.push(['_trackEvent', 'ToPost', 'InAll', '{{ post.url }}']);">
@@ -20,9 +24,16 @@ title: All posts
     {% for tag in post.tags %}
         <a href="{{ site.baseurl }}/all/?tag={{ tag }}" class="button small">{{ tag }}</a>
     {% endfor%}
+
+    {% if post != site.posts.last %}
+    <HR class="style3">
+    {% endif %}
+
 </div>
 {% endif %}
 {% endfor %}
+
+<HR class="style2">
 
 <script type="text/javascript">
     // function queryString is copied from

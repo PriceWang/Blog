@@ -1844,3 +1844,50 @@ $baseurl: '{{ site.baseurl }}/images';
 			}
 		}
 	}
+
+/* HR */
+
+	hr.style1 { 
+	  height: 30px; 
+	  border-style: solid; 
+	  border-color: #8c8b8b; 
+	  border-width: 1px 0 0 0; 
+	  border-radius: 20px; 
+	} 
+	hr.style1:before { 
+		display: block; 
+		content: ""; 
+		height: 30px; 
+		margin-top: -31px; 
+		border-style: solid; 
+		border-color: #8c8b8b; 
+		border-width: 0 0 1px 0; 
+		border-radius: 20px; 
+	}
+
+	hr.style2 { 
+		height: 30px; 
+		border-style: solid; 
+		border-color: #8c8b8b; 
+		border-width: 1px 0 0 0; 
+		border-radius: 20px;
+		transform: rotate(180deg);
+	} 
+	hr.style2:before { 
+		display: block; 
+		content: ""; 
+		height: 30px; 
+		margin-top: -31px; 
+		border-style: solid; 
+		border-color: #8c8b8b; 
+		border-width: 0 0 1px 0; 
+		border-radius: 20px; 
+	}
+
+	hr.style3 { 
+		height: 30px; 
+		border-style: dashed;; 
+		border-color: #8c8b8b; 
+		border-width: 1px 0 0 0; 
+		//border-radius: 20px; 
+	}

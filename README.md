@@ -1,5 +1,9 @@
 # Personal Blog
 
-## Bete 1.0
+## Beta 1.0
 
 博客初始化，首页布局，all pages页
+
+### Beta 1.1
+
+优化all pages页
