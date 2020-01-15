@@ -11,7 +11,26 @@ layout: default
       <h6>{{ page.time }}</h6>
 
       {{ content }}
+
+      <script src='{{ site.baseurl }}/js/Valine.min.js'></script>
+    <div id="vcomments"></div>
+    <script>
+        var ran = Math.floor(Math.random()*5);
+        var set = new Array('identicon', 'monsterid', 'wavatar', 'robohash', 'retro');
+        new Valine({
+            el: '#vcomments',
+            appId: 'okYgbxoGbXG7iIqFss8xsRJo-gzGzoHsz',
+            appKey: 'tl337xntG2Qxz5Ux1CW6rG8L',
+            notify: true, // 邮件提醒!!!
+            verify: true, // 验证码
+            placeholder: '艺术家从来不看评论',
+            avatar: 'wavatar' // (''/mp/identicon/monsterid/wavatar/robohash/retro/hide)
+        })
+    </script>
     </div>
+
+    
+
   </section>
 
 </article>
