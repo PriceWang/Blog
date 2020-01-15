@@ -1251,7 +1251,7 @@ $baseurl: '{{ site.baseurl }}/images';
 		@include padding(6em, 0);
 
 		> .inner {
-			width: 60em;
+			width: 80%;
 			margin: 0 auto;
 
 			@include breakpoint(large) {
@@ -1265,6 +1265,18 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		&.alt {
 			padding: 0;
+		}
+
+		&.post {
+			margin: auto;
+			width: 85%;
+		}
+
+		&.style7 {
+			@include vendor('background-image', 'url("#{$baseurl}/post_background.png")');
+			@include vendor('background-position', 'center');
+			@include vendor('background-size', '100% 100%');
+			@include wrapper(accent8);
 		}
 
 		&.style1 {
@@ -1513,12 +1525,16 @@ $baseurl: '{{ site.baseurl }}/images';
 		}
 
 		&.alt {
-			background: transparent;
 
 			h1 {
 				@include vendor('pointer-events', 'none');
 				opacity: 0;
 			}
+		}
+
+		&.post {
+			left: 100%;
+			width: 0;
 		}
 	}
 
