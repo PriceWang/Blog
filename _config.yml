@@ -1,56 +1,117 @@
-# Welcome to Jekyll!
-#
-
 # Site settings
-title: Voice of Price - 王有话说
-description: |
-  爱上一场认真的消遣
-owner: Price Wang # or company name
-first_published: 2020 # if migrating another site, the year of your first publish
+title: Voice of Price
+SEOTitle: Voice of Price | 王有声音
+header-img: img/home-bg.jpg
 email: 0428wgx@gmail.com
-baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "http://pricewang.art" # the base hostname & protocol for your site
-social:
-  twitter: https://twitter.com/WangPrice
-  github: https://github.com/PriceWang
-  linkedin-square: https://linkedin.com/in/guoxinwang
-  facebook-official: https://facebook.com/price.wang
-  #flickr:
-  instagram: https://instagram.com/price_wang
-  #youtube-square:
-  #spotify:
-  #stack-overflow:
-  #vimeo:
-  #reddit:
-  #stubleupon:
-  #delicious:
-  #pied-piper:
-  #digg:
-  #soundcloud:
-  #deviantart:
-  #angellist:
-  #tumblr-square:
-  #stackexchange:
-  weibo: //weibo.com/wangprice
-  email: mailto:0428wgx@gmail.com
-  #trello:
-  #foursquare:
-  #linux:
-  #bitbucket-square:
-  #vk:
-  #slack:
-  #vine:
-  #weixin:
-  #yelp:
-  #skyatlas:
-  #leanpub:
-  #connectdevelop:
-  #ils:
-  #forumbee:
-  #tripadvisor:
-  #amazon:
+description: "iOS 开发 | liluxin，iOS & Photography Lover，Software Engineer，Entrepreneur | 这里是 一之笔 @Yizibbi liluxin 的个人博客， 生活需要仪式感，💪。"
+keyword: "Price, 王有声音, 博客, 个人网站"
+url: "https://pricewang.art/"              # your host, for absolute URL
+baseurl: "/blog"                             # for example, '/blog' if your blog hosted on 'host/blog'
+
+# Publish posts or collection documents with a future date.
+future: true
+
+# SNS settings
+# RSS: true
+weibo_username:     wangprice
+ins_username:     price_wang
+github_username:    PriceWang
+linkedin_username:  guoxinwang
+twitter_username:   WangPrice
+facebook_username:  price.wang
+
+
 
 # Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+highlighter: rouge
+textColor: #FF0000
+permalink: pretty
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+# If you have timezone issue (e.g. #68) in China, uncomment to use this:
+# timezone: CN  
+
+# Back to top 回到顶部by ray-eldath
+b2t: true
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+# make sure you have this gem installed
+# `$ gem install jekyll-paginate`
+plugins: [jekyll-sitemap]
+gems: [jekyll-sitemap]
+
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: kramdown
-#sass:
-#  style: compressed
+kramdown:
+  input: GFM                            # use Github Flavored Markdown !important
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+# Comment
+#comment:
+    #disqus: yizibi
+
+# Netease settings
+netease_comment: false
+
+# gitalk:
+#   enable: true
+#   owner: yizibi
+#   repo: yizibi.github.io
+#   clientID: 3e12c08c2ec52afbcb30
+#   clientSecret: c2a74d279e7b42cf782a1d2d1b5a410d27c5ab57
+#   admin: yizibi
+
+
+# Analytics settings
+# Baidu Analytics 
+# ba_track_id: [your track id]
+
+# Google Analytics
+# ga_track_id: 'UA-124793396-1'            # Format: UA-xxxxxx-xx
+# ga_domain: auto
+
+
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: 爱上一场认真的消遣
+sidebar-avatar: img/price.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
+
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: false
+
+
+
+# MathJax rendering for layout:page (e.g. post preview)
+page-mathjax: false
+
+
+
+# Friends
+# friends: [
+#   {
+#	title: "A's Blog",
+#	href: "https://pricewang.art/blog"
+#    }
+#]
