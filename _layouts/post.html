@@ -2,19 +2,28 @@
 layout: default
 ---
 
+<script type="text/javascript" color="0,0,0" opacity='0.7' zIndex="-2" count="99" src="{{ site.baseurl }}/js/canvas-nest.min.js"></script>
+
 <article id="main">
 
   <section class="wrapper post style7">
     <div class="inner">
-      <h2>{{ page.title }}</h2>
-      <h5>{{ page.author }}</h5>
-      <h6>{{ page.time }}</h6>
+      <div style="margin-bottom: 50px;">
+        <div style="font-size: 1.75em;">{{ page.title }}</div>
+        <div style="margin-top: 10px;" id='tag_cloud' class="tags post">
+          {% for tag in page.tags %}
+          <a class="tag post" href="{{ site.baseurl }}/all/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+          {% endfor %}
+        </div>
+        <em>Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</em>
+      </div>
+      
 
       {{ content }}
 
       <script src='{{ site.baseurl }}/js/Valine.min.js'></script>
-    <div id="vcomments"></div>
-    <script>
+      <div id="vcomments"></div>
+      <script>
         var ran = Math.floor(Math.random()*5);
         var set = new Array('identicon', 'monsterid', 'wavatar', 'robohash', 'retro');
         new Valine({
@@ -27,7 +36,7 @@ layout: default
             avatar: 'wavatar', // (''/mp/identicon/monsterid/wavatar/robohash/retro/hide)
             visitor: true
         })
-    </script>
+      </script>
     </div>
 
     

@@ -8,89 +8,47 @@ title: All Posts
         <div class="inner">
             <h7>{{ page.title }}</h7>
     
+            <!-- 标签云 -->
+            <div id='tag_cloud' class="tags">
+                {% for tag in site.tags %}
+                <a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+                {% endfor %}
+            </div>
+
             <HR class="style1">
 
-            {% assign lastMonth = '' %}
-            {% for post in site.posts %}
-            {% if post.hide != true %}
+                            
                 
-                
-            <div class="wrapper post_block">               
-                
-                <div>{{ post.time | date: "%Y.%m.%d" }}</div>
-                
-                <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}{% if post.subtitle != null %}：{{ post.subtitle }}{% endif %}</a></h2>
-                    
-                <p>{{ post.excerpt | markdownify }}</p>
-                
-                {% for tag in post.tags %}
-                    <a href="{{ site.baseurl }}/all/?tag={{ tag }}" onclick="test()" class="button small tag">{{ tag }}</a>
-                {% endfor%}            
-                {% if post != site.posts.last %}
-                <HR class="style3">
-                {% endif %}                
+            <!-- 标签列表 -->
+            <div>
+                {% for tag in site.tags %}
+                <span style="margin-bottom: 20px; margin-top: 0;" class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
+                    <span class="tag-text">{{ tag[0] }}</span>
+                </span>
+                {% for post in tag[1] %}
+                <!-- <li class="listing-item">
+                <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                </li> -->
+                {% if post.hide != true %}
+
+                <div style="margin-left: 20px; margin-bottom: 20px;" class="wrapper post_block">
+
+                    <a href="{{ site.baseurl }}{{ post.url }}"><h2>{{ post.title }}{% if post.subtitle != null %}：{{ post.subtitle }}{% endif %}</h2>
+                        
+                    <h6>{{ post.excerpt | markdownify }}</h6></a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                    <HR class="style3">
+                </div>
+
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
-                
+
             <HR class="style2">
 
 
         </div>
     </section> 
 </article>
-
-<script type="text/javascript" src="js/jquery.min.js">
-    // function queryString is copied from
-    // http://stackoverflow.com/questions/979975/how-to-get-the-value-from-url-parameter#answer-979995
-    function queryString() {
-      // This function is anonymous, is executed immediately and
-      // the return value is assigned to QueryString!
-      var query_string = {};
-      var query = window.location.search.substring(1);
-      alert(query);
-      var vars = query.split("&");
-      for (var i=0;i<vars.length;i++) {
-        var pair = vars[i].split("=");
-        // If first entry with this name
-        if (typeof query_string[pair[0]] === "undefined") {
-            query_string[pair[0]] = pair[1];
-        // If second entry with this name
-        } else if (typeof query_string[pair[0]] === "string") {
-            var arr = [ query_string[pair[0]], pair[1] ];
-            query_string[pair[0]] = arr;
-        // If third or later entry with this name
-        } else {
-            query_string[pair[0]].push(pair[1]);
-        }
-      }
-        return query_string;
-    }
-
-    window.jQueryCallBack = function() {
-        alert("ttt");
-        var query = queryString();
-
-        if (query.tag !== undefined) {
-            var tag = decodeURI(query.tag);
-            var tagClassName = tag.replace(new RegExp('\\.', 'g'), '\\.');
-            $('.h7').text('Posts tagged with ' + tag);
-            $('.post_block').not('.tag-' + tagClassName).hide();
-        }
-    };
-
-    function test() {
-
-        var dataStr = '{ {% for tag in site.tags %}{% if tag[0] != site.tags.first[0] %},{% endif %}"{{ tag[0] }}":[{% for post in tag[1] %}{% if post != tag[1].first %},{% endif %}{"url":"{{post.url}}", "title":"{{post.title}}", "date":"{{post.time | date:"%d/%m/%Y"}}"}{% endfor %}]{% endfor %} }';
-
-        data = JSON.parse(dataStr);
-
-        curTag = $.get("tag");
-
-        alert("curTag");
-
-        archieves = data[curTag];
-
-    }
-
-</script>

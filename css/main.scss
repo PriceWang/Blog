@@ -39,7 +39,7 @@ $baseurl: '{{ site.baseurl }}/images';
 	}
 
 	body {
-		background: _palette(bg);
+		@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0))', 'url("#{$baseurl}/zip_blog_background.jpg")'));
 
 		&.is-loading {
 			*, *:before, *:after {
@@ -891,10 +891,6 @@ $baseurl: '{{ site.baseurl }}/images';
 			height: 3.75em;
 			line-height: 3.75em;
 		}
-
-		&.tag {
-			background-color: #786f69;
-		}
 	}
 
 /* Features */
@@ -1320,6 +1316,80 @@ $baseurl: '{{ site.baseurl }}/images';
 
 	}
 
+/* Tags */
+
+	#tag_cloud {
+		margin: 30px 0 15px 0;
+		font-size: 14px;
+		border: none;
+		line-height: 28px;
+		//margin: 0 2px;
+		//margin-bottom: 8px;
+		background: #d6d6d600;
+
+		&.post{
+			margin: auto;
+		}
+	}
+	#tag_cloud a:hover,
+	#tag_cloud .tag:hover,
+	#tag_cloud a:active,
+	#tag_cloud .tag:active {
+		background-color: #786f69 !important;
+	}
+	@media only screen and (min-width: 768px) {
+		#tag_cloud {
+			margin-bottom: 25px;
+		}
+	}
+
+	.tags {
+		margin-bottom: -5px;
+	}
+	.tags a,
+	.tags .tag {
+		display: inline-block;
+		border: 1px solid rgba(255, 255, 255, 0.8);
+		border-radius: 999em;
+		padding: 0 10px;
+		color: #ffffff;
+		line-height: 24px;
+		font-size: 12px;
+		text-decoration: none;
+		margin: 0 1px;
+		margin-bottom: 6px;
+
+		&.post{
+			background: #ccc4c0;
+			color: #050505;
+		}
+	}
+	.tags a:hover, .tags .tag:hover, .tags a:active, .tags .tag:active {
+		color: white;
+		border-color: white;
+		background-color: rgba(255, 255, 255, 0.4);
+		text-decoration: none;
+	}
+	 @media only screen and (min-width: 768px) {
+		.tags a, .tags .tag {
+		  	margin-right: 5px;
+		}
+	}
+
+	.listing-seperator {
+		color: #d6c6bc;
+		font-size: 21px !important;
+	}
+	.listing-seperator::before {
+		margin-right: 5px;
+	}
+	@media only screen and (min-width: 768px) {
+		.listing-seperator {
+			font-size: 20px !important;
+			line-height: 2 !important;
+		}
+	}
+
 /* Page Wrapper + Menu */
 
 	#page-wrapper {
@@ -1426,6 +1496,9 @@ $baseurl: '{{ site.baseurl }}/images';
 
 		#menu {
 			@include vendor('transform', 'translateX(0)');
+		}
+		#header {
+			visibility: hidden;
 		}
 	}
 
