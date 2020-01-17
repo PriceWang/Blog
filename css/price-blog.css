@@ -9,20 +9,16 @@
     padding-right: 5%;
   }
 }
-.main_content {
-  margin-top: 0;
-  background-color: #a39990;
-}
 .sidebar-container {
   color: #bfbfbf;
   font-size: 14px;
 }
 .sidebar-container h5 {
-  color: #cccccc;
+  color: #bfbfbf;
   padding-bottom: 1em;
 }
 .sidebar-container h5 a {
-  color: #cccccc !important;
+  color: #bfbfbf !important;
   text-decoration: none;
 }
 .sidebar-container a {
@@ -40,7 +36,7 @@
   border-color: #786f69;
 }
 .sidebar-container .short-about img {
-  width: 80%;
+  width: 50%;
   display: block;
   border-radius: 5px;
   margin-bottom: 20px;
@@ -123,10 +119,10 @@
 }
 .side-catalog .catalog-body .active {
   border-radius: 4px;
-  background-color: #F5F5F5;
+  background-color: #786f69;
 }
 .side-catalog .catalog-body .active a {
-  color: #786f69!important;
+  color: #bfbfbf!important;
 }
 @media (max-width: 1200px) {
   .side-catalog {
@@ -540,7 +536,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
   line-height: 1.7;
   font-size: 16px;
-  /*background-color: #363132;*/
+  background-color: black;
   color: #404040;
   overflow-x: hidden;
   text-rendering: auto;
@@ -606,9 +602,10 @@ select {
   -webkit-appearance: none;
   margin-top: 15px;
   color: #786f69;
-  border-color: #337ab7;
+  border-color: #786f69;
   padding: 0em 0.4em;
   background: white;
+  outline-color: #786f69;
 }
 select.sel-lang {
   min-height: 28px;
@@ -620,11 +617,14 @@ table.table > tbody td,
 table.table > thead td {
   border: 1px solid #eee;
 }
+hr {
+  border-color: #786f69;
+}
 hr.small {
   max-width: 100px;
   margin: 15px auto;
   border-width: 4px;
-  border-color: white;
+  border-color: #786f69;
 }
 pre,
 .table-responsive {
@@ -640,11 +640,11 @@ pre code {
   margin-bottom: 15px;
 }
 .post-container a {
-  color: #786f69;
+  color: #928774;
 }
 .post-container a:hover,
 .post-container a:focus {
-  color: #786f69;
+  color: white;
 }
 .post-container h1,
 .post-container h2,
@@ -653,22 +653,28 @@ pre code {
 .post-container h5,
 .post-container h6 {
   margin: 30px 0 10px;
+  color: #bfbfbf;
+}
+.post-container p {
+  color: #bfbfbf;
 }
 .post-container h5 {
   font-size: 19px;
   font-weight: 600;
-  color: gray;
+  color: #bfbfbf;
 }
 .post-container h5 + p {
   margin-top: 5px;
+  color: #bfbfbf;
 }
 .post-container h6 {
   font-size: 16px;
   font-weight: 600;
-  color: gray;
+  color: #bfbfbf;
 }
 .post-container h6 + p {
   margin-top: 5px;
+  color: #bfbfbf;
 }
 .post-container ul,
 .post-container ol {
@@ -695,6 +701,7 @@ pre code {
 .post-container li p {
   margin: 0;
   margin-bottom: 5px;
+  color: #bfbfbf;
 }
 .post-container li h1,
 .post-container li h2,
@@ -704,21 +711,26 @@ pre code {
 .post-container li h6 {
   line-height: 2;
   margin-top: 20px;
+  color: #bfbfbf;
 }
 .post-container .pager li {
   width: 48%;
 }
 .post-container .pager li.next {
   float: right;
+  border: solid;
+  border-color: #bfbfbf;
 }
 .post-container .pager li.previous {
   float: left;
+  border: solid;
+  border-color: #bfbfbf;
 }
 .post-container .pager li > a {
   width: 100%;
 }
 .post-container .pager li > a > span {
-  color: #cccccc;
+  color: #bfbfbf;
   font-weight: normal;
   letter-spacing: 0.5px;
 }
@@ -762,6 +774,7 @@ pre code {
     line-height: 28px;
   }
   #huxblog_navbar .navbar-collapse {
+    background-color: black;
     height: 0px;
     transform: scaleY(0);
     transform-origin: top right;
@@ -771,9 +784,13 @@ pre code {
     -webkit-transition: -webkit-transform 400ms cubic-bezier(0.32, 1, 0.23, 1) 0ms;
   }
   #huxblog_navbar li {
+    color: #bfbfbf;
     opacity: 0;
     transition: opacity 100ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
     -webkit-transition: opacity 100ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  }
+  #huxblog_navbar li a:hover {
+    color: white;
   }
   #huxblog_navbar.in {
     transform: scaleX(1);
@@ -811,12 +828,12 @@ pre code {
 }
 .navbar-custom .navbar-brand {
   font-weight: 800;
-  color: white;
+  color: #bfbfbf;
   height: 56px;
   line-height: 25px;
 }
 .navbar-custom .navbar-brand:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
 }
 .navbar-custom .nav li a {
   text-transform: uppercase;
@@ -837,21 +854,21 @@ pre code {
     font-size: 20px;
   }
   .navbar-custom .navbar-brand {
-    color: white;
+    color: #bfbfbf;
     padding: 20px;
     line-height: 20px;
   }
   .navbar-custom .navbar-brand:hover,
   .navbar-custom .navbar-brand:focus {
-    color: rgba(255, 255, 255, 0.8);
+    color: white;
   }
   .navbar-custom .nav li a {
-    color: white;
+    color: #bfbfbf;
     padding: 20px;
   }
   .navbar-custom .nav li a:hover,
   .navbar-custom .nav li a:focus {
-    color: rgba(255, 255, 255, 0.8);
+    color: white;
   }
   .navbar-custom .nav li a:active {
     background: none;
@@ -875,25 +892,25 @@ pre code {
     /* when the user scrolls down, we hide the header right above the viewport */
     position: fixed;
     top: -61px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid #f2f2f2;
+    background-color: transparent;
+    border-bottom: 0px solid #f2f2f2;
     -webkit-transition: -webkit-transform 0.3s;
     -moz-transition: -moz-transform 0.3s;
     transition: transform 0.3s;
   }
   .navbar-custom.is-fixed .navbar-brand {
-    color: #404040;
+    color: #bfbfbf;
   }
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #786f69;
+    color: white;
   }
   .navbar-custom.is-fixed .nav li a {
-    color: #404040;
+    color: #bfbfbf;
   }
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
-    color: #786f69;
+    color: white;
   }
   .navbar-custom.is-visible {
     /* if the user changes the scrolling direction, we show the header */
@@ -1000,7 +1017,7 @@ pre code {
   font-size: 18px;
 }
 .intro-header .post-heading .meta a {
-  color: white;
+  color: #bfbfbf;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .post-heading h1 {
@@ -1014,12 +1031,12 @@ pre code {
   }
 }
 .post-preview > a {
-  color: #404040;
+  color: #bfbfbf;
 }
 .post-preview > a:hover,
 .post-preview > a:focus {
   text-decoration: none;
-  color: #786f69;
+  color: white;
 }
 .post-preview > a > .post-title {
   font-size: 21px;
@@ -1202,7 +1219,7 @@ form .row:first-child .floating-label-form-group {
   font-weight: 800;
   letter-spacing: 1px;
   padding: 10px;
-  background-color: white;
+  background-color: transparent;
   border-radius: 0;
 }
 @media only screen and (min-width: 768px) {
@@ -1213,7 +1230,7 @@ form .row:first-child .floating-label-form-group {
   }
 }
 .pager li > a {
-  color: #404040;
+  color: white;
 }
 .pager li > a:hover,
 .pager li > a:focus {
@@ -1274,7 +1291,7 @@ img::-moz-selection {
 .tags .tag:active {
   color: white;
   border-color: white;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(85, 84, 74, 0.4);
   text-decoration: none;
 }
 @media only screen and (min-width: 768px) {
@@ -1326,7 +1343,7 @@ img::-moz-selection {
   margin-top: 0px;
 }
 .listing-seperator {
-  color: #786f69;
+  color: white;
   font-size: 21px !important;
 }
 .listing-seperator::before {
@@ -1342,6 +1359,7 @@ img::-moz-selection {
   margin: 20px 0 15px 0;
 }
 .mini-post-list .tag-text {
+  font-size: 25px;
   font-weight: 200;
   /* Hux learn from
      *     TypeIsBeautiful,
@@ -1398,7 +1416,7 @@ img::-moz-selection {
   background-color: inherit;
 }
 .navbar-default .navbar-toggle:active {
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: transparent;
 }
 /* Hux customize Style for navBar button */
 .navbar-default .navbar-toggle {
@@ -1412,7 +1430,7 @@ img::-moz-selection {
 .navbar-default .navbar-toggle .icon-bar {
   width: 18px;
   border-radius: 0px;
-  background-color: white;
+  background-color: #bfbfbf;
 }
 .navbar-default .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 3px;
