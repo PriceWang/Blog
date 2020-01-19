@@ -703,6 +703,10 @@ pre code {
   margin-bottom: 5px;
   color: #bfbfbf;
 }
+.post-container ul li{
+  font-size: 14px;
+  color: #bfbfbf;
+}
 .post-container li h1,
 .post-container li h2,
 .post-container li h3,
