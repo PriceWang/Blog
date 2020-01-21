@@ -4,6 +4,6 @@ _site/
 .idea
 *.swp
 .Trashes
-.jekyll-cache
-.vscode
-_drafts
+.jekyll-cache/
+.vscode/
+_drafts/
