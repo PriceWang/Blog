@@ -1,0 +1,10 @@
+---
+layout: page
+header-img: "img/reward-bg.jpg"
+hide: true
+---
+
+<div class="post-container">
+    {% capture reward %}{% include posts/reward.md %}{% endcapture %}
+    {{ reward | markdownify }}
+</div>

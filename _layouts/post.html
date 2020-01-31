@@ -5,8 +5,6 @@ layout: default
 <head>
     <link href="{{ site.baseurl }}/css/rouge.css" rel="stylesheet">
 </head>
-<!--    打赏-->
-<link href="{{ site.baseurl }}/css/reward.css?v=6.2.0" rel="stylesheet" type="text/css" />
 <!-- 大图浏览 -->
 <link href="{{ site.baseurl }}/css/imageContent.css" rel="stylesheet">
 
@@ -77,30 +75,10 @@ layout: default
 
                 <hr style="visibility: hidden;">
 
-                <!-- 打赏功能 -->
-                <div>
-                    <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-                    <p>☛送我一本书吧☚</p>
-                    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-                        <span>赏</span>
-                    </button>
-                    <div id="QR" style="display: none;">
-                            
-                            
-                            
-                    <div id="alipay" style="display: inline-block">
-                    <img id="alipay_qr" src="{{ site.baseurl }}/img/payimg/alipayimg.jpg" alt="yizibi 支付宝"/>
-                    <p>支付宝</p>
-                    </div>
-                            
-                            
-                            
-                            
-                    </div>
-                    </div>
-                    
-                </div>
-            
+                <div style="margin: 20px auto; width: 90%; text-align: center;"><p>☛请君入瓮☚</p></div>
+                <div style="margin: auto; width: 80px;"><a href="{{ site.baseurl }}/reward/">
+                    <img src="{{ site.baseurl }}/img/payimg/reward.png" style="width: 80px; cursor: pointer" />
+                </a></div>
 
                 <!--  上一篇或者下一篇post按钮 -->
                 <ul class="pager">
