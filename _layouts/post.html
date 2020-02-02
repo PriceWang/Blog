@@ -70,7 +70,11 @@ layout: default
                 </select>
                 {% endif %}
 
-
+                <span id="{{ page.url }}" class="leancloud_visitors" data-flag-title="{{ page.title }}">
+                    <em class="post-meta-item-text">当前页访问次数 </em>
+                    <i class="leancloud-visitors-count"></i>
+                </span>
+                
 				{{ content }}
 
                 <hr style="visibility: hidden;">
