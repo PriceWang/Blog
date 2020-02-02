@@ -70,11 +70,11 @@ layout: default
                 </select>
                 {% endif %}
 
-                <span id="{{ page.url }}" class="leancloud_visitors" data-flag-title="{{ page.title }}">
-                    <em class="post-meta-item-text">当前页访问次数 </em>
-                    <i class="leancloud-visitors-count"></i>
+                <span id="<{{ page.url }}>" class="leancloud_visitors" data-flag-title="{{ page.title }}">
+                    <em class="post-meta-item-text">当前阅读量 </em>
+                    <i class="leancloud-visitors-count">loading</i>
                 </span>
-                
+
 				{{ content }}
 
                 <hr style="visibility: hidden;">
@@ -108,8 +108,8 @@ layout: default
                     <script src='{{ site.baseurl }}/js/Valine.min.js'></script>
                     <div id="vcomments"></div>
                     <script>
-                        var ran = Math.floor(Math.random()*5);
-                        var set = new Array('identicon', 'monsterid', 'wavatar', 'robohash', 'retro');
+                        //var ran = Math.floor(Math.random()*5);
+                        //var set = new Array('identicon', 'monsterid', 'wavatar', 'robohash', 'retro');
                         new Valine({
                             el: '#vcomments',
                             appId: 'okYgbxoGbXG7iIqFss8xsRJo-gzGzoHsz',
