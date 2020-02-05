@@ -2,7 +2,6 @@
 layout: post
 title: GitHub + Jekyll 搭建个人博客
 subtitle: How Do I Make This Site
-header-img: img/post/GitHub + Jekyll 搭建个人博客/bg.jpg
 date: 2020.02.01 14:32:24
 author: Price Wang
 header-mask: 0.8
@@ -36,7 +35,7 @@ tags:
 
 > 在 CMD 中用命令 `ping 用户名.github.io` 找到存放你的 GitHub Pages 的主机的 IP 地址，下图中红框内的就是我们要找的 IP 地址
 
-![]({{ site.baseurl }}/img/post/GitHub + Jekyll 搭建个人博客/Ping命令.jpg "Ping 命令")
+![]({{ site.baseurl }}/img/post/{{ page.title }}/Ping命令.jpg "Ping 命令")
 
 > 在域名控制台选择解析并添加两条记录
 
