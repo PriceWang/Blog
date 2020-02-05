@@ -13,7 +13,8 @@ layout: default
         background-repeat:no-repeat;
         background-size: 100% 100%;
         position: relative;
-        background-image: url('{{ site.baseurl }}/img/post/{{ page.title }}/bg.jpg')
+        /*background-image: url('{{ site.baseurl }}/img/post/{{ page.title }}/bg.jpg')*/
+        background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')
     }
 
     {% if page.header-mask %}
