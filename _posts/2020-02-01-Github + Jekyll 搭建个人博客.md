@@ -2,7 +2,7 @@
 layout: post
 title: Github + Jekyll 搭建个人博客
 subtitle: How Do I Make This Site
-header-img: img/home-bg.jpg
+header-img: img/post/Github + Jekyll 搭建个人博客/bg.jpg
 date: 2020.02.01 14:32:24
 author: Price Wang
 header-mask: 0.8
