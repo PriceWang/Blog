@@ -4,7 +4,6 @@ title: Github + Jekyll 搭建个人博客
 subtitle: How Do I Make This Site
 date: 2020.02.01 14:32:24
 author: Price Wang
-header-img: "img/post/test1.jpg"
 header-mask: 0.8
 catalog: true
 tags:
@@ -26,7 +25,7 @@ tags:
 
 > 在 GitHub 上新建一个仓库，仓库名称格式为：`用户名.github.io`（如：PriceWang.github.io）
 
-![]({{ site.baseurl }}/img/post/2020.02.01-GitHub + Jekyll 搭建个人博客/创建仓库.jpg "创建仓库")
+![]({{ site.baseurl }}/img/post/{{ page.title }}/创建仓库.jpg "创建仓库")
 
 浏览器里访问 https://用户名.github.io/，发现这个 url 可以被访问了，你可以把改仓库 Pull 到本地，然后新建一个 index.html 的文件，输入任意内容，再把文件推送到 GitHub 上，访问该链接，可以发现 index.html 里面的内容已经被成功部署到服务器上了
 
@@ -36,17 +35,17 @@ tags:
 
 > 在 CMD 中用命令 `ping 用户名.github.io` 找到存放你的 GitHub Pages 的主机的 IP 地址，下图中红框内的就是我们要找的 IP 地址
 
-![]({{ site.baseurl }}/img/post/2020.02.01-GitHub + Jekyll 搭建个人博客/Ping命令.jpg "Ping 命令")
+![]({{ site.baseurl }}/img/post/{{ page.title }}/Ping命令.jpg "Ping 命令")
 
 > 在域名控制台选择解析并添加两条记录
 
-![]({{ site.baseurl }}/img/post/2020.02.01-GitHub + Jekyll 搭建个人博客/域名解析.jpg "域名控制台")
+![]({{ site.baseurl }}/img/post/{{ page.title }}/域名解析.jpg "域名控制台")
 
-![]({{ site.baseurl }}/img/post/2020.02.01-GitHub + Jekyll 搭建个人博客/记录.jpg "添加记录")
+![]({{ site.baseurl }}/img/post/{{ page.title }}/记录.jpg "添加记录")
 
 > 在 GitHub xxx.github.io 项目的设置页面中，滑动到下方，找到 GitHub Pages 这一栏，在 Custom Domain 填上刚刚添加解析的域名并保存
 
-![]({{ site.baseurl }}/img/post/2020.02.01-GitHub + Jekyll 搭建个人博客/自定义域名.jpg "自定义域名")
+![]({{ site.baseurl }}/img/post/{{ page.title }}/自定义域名.jpg "自定义域名")
 
 此时，已经可以使用自定义的域名访问 GitHub Pages 所提供的页面了
 
@@ -73,15 +72,15 @@ tags:
 
 > 下载并解压 [RubyGems](https://rubygems.org/pages/download)，CMD执行：ruby setup.rb
 
-![]({{ site.baseurl }}/img/post/2020.02.01-GitHub + Jekyll 搭建个人博客/安装ruby.jpg "安装ruby")
+![]({{ site.baseurl }}/img/post/{{ page.title }}/安装ruby.jpg "安装ruby")
 
 > CMD 执行：gem install jekyll
 
-![]({{ site.baseurl }}/img/post/2020.02.01-GitHub + Jekyll 搭建个人博客/安装jekyll.jpg "安装jekyll")
+![]({{ site.baseurl }}/img/post/{{ page.title }}/安装jekyll.jpg "安装jekyll")
 
 > 官网提供了大量[博客模板](http://jekyllthemes.org/)，我们可以去挑选一个自己喜欢的博客模板，然后在这个基础上修改成满足自己需求的博客，CMD 执行 jekyll server 后可以开启本地服务器
 
-![]({{ site.baseurl }}/img/post/2020.02.01-GitHub + Jekyll 搭建个人博客/本地服务器.jpg "本地服务器")
+![]({{ site.baseurl }}/img/post/{{ page.title }}/本地服务器.jpg "本地服务器")
 
 到此我们完成了 Jekyll 的安装并选定了一个博客主题模板。Jekyll 的语法规则和具体使用方法都可以在[官网](https://jekyllrb.com/)找到
 
