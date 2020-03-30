@@ -15,7 +15,34 @@ description: 王有声音
 
             <!-- 标签列表 -->
 			<div class="mini-post-list">
+
+				<span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
+                    <span class="tag-text"> {{site.posts[0].tags[0]}} </span>
+				</span>
+				{% for tag in site.tags %}
+				{% if tag[0]==site.posts[0].tags[0] %}
+				{% for post in tag[1] %}
+				  <!-- <li class="listing-item">
+				  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+				  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+				  </li> -->
+				 <div class="post-preview">
+				    <a href="{{ post.url | prepend: site.baseurl }}">
+				        <h2 class="post-title">
+                            {{ post.title }}
+				        </h2>
+
+				    </a>
+				    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+				</div>
+				<hr>
+				{% endfor %}
+				{% endif %}
+				{% endfor %}
+				
+
 			{% for tag in site.tags %}
+			{% if tag[0]!=site.posts[0].tags[0] %}
 			  	<span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
                     <span class="tag-text">{{ tag[0] }}</span>
                 </span>
@@ -29,16 +56,13 @@ description: 王有声音
 				        <h2 class="post-title">
                             {{ post.title }}
 				        </h2>
-				        {% if post.subtitle %}
-				        <h3 class="post-subtitle">
-				            {{ post.subtitle }}
-				        </h3>
-				        {% endif %}
+
 				    </a>
 				    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
 				</div>
 				<hr>
 				{% endfor %}
+			{% endif %}
 			{% endfor %}
 			</div>
 
