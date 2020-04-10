@@ -24,7 +24,39 @@ layout: default
         background: rgba(0,0,0, {{ page.header-mask }});
     }
     {% endif %}
+    .image-cover-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  position: fixed;
+  z-index: 30;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+  transition: opacity ease 0.3s;
+  pointer-events: none;
+}
+
+.model-shown {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.image-cover-modal-content {
+  display: block;
+  width: auto;
+  height: auto;
+}
+.post_img{
+    cursor: pointer;
+}  
 </style>
+
 <header class="intro-header" >
     <div class="header-mask"></div>
     <div class="container">
@@ -74,7 +106,6 @@ layout: default
                 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                 <span id="busuanzi_container_site_pv">本文阅读量 <span id="busuanzi_value_site_pv"></span></span>
                 -->
-
 				{{ content }}
 
                 <hr style="visibility: hidden;">
@@ -183,8 +214,7 @@ layout: default
 
     
 </article>
-<!-- 大图浏览 -->
-<!-- {% include clickable-image.html %} -->
+{% include clickable-image.html %}
 
 <!-- Add support for Mathjax by Voleking-->
 {% if page.mathjax %}
