@@ -96,13 +96,14 @@ layout: default
                 col-xs-12
                 sidebar-container
             ">
+
                 <!-- Featured Tags -->
                 {% if site.featured-tags %}
                 <section>
                     <hr class="hidden-sm hidden-xs">
                     <h5>TAGS</h5>
                     <div class="tags">
-                        {% for tag in site.tags %}
+                        {% for tag in site.tags reversed %}
                                 <a href="{{ site.baseurl }}/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
                                     {{ tag[0] }}
                                 </a>

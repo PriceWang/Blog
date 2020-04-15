@@ -19,7 +19,7 @@ description: 王有声音
 				<span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
                     <span class="tag-text"> {{site.posts[0].tags[0]}} </span>
 				</span>
-				{% for tag in site.tags %}
+				{% for tag in site.tags reversed %}
 				{% if tag[0]==site.posts[0].tags[0] %}
 				{% for post in tag[1] %}
 				  <!-- <li class="listing-item">
@@ -45,7 +45,7 @@ description: 王有声音
 				{% endfor %}
 				
 
-			{% for tag in site.tags %}
+			{% for tag in site.tags reversed %}
 			{% if tag[0]!=site.posts[0].tags[0] %}
 			  	<span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
                     <span class="tag-text">{{ tag[0] }}</span>
