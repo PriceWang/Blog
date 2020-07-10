@@ -3,9 +3,7 @@
 
 # 来人，赏~
 
-本人Price，现为爱尔兰都柏林大学博士一年级学生
-
-研究方向为基于物联网传感器的连续验证
+本人Price
 
 硬件攻城狮，自学程序猿，偏门爱好者
 
@@ -13,7 +11,7 @@
 
 我的社交账号ID基本都叫等候堤防，出自林宥嘉的心酸：校门口老地方，我是等候堤防~
 
-artist不可一日不读书（可以到<a href="http://book.douban.com/people/PRICE_WANG/collect" target="_blank">豆瓣读书</a>查看我最近读过的书）。欢迎关注[我的豆瓣](https://www.douban.com/people/PRICE_WANG/)
+士不可一日无书（可以到<a href="http://book.douban.com/people/PRICE_WANG/collect" target="_blank">豆瓣读书</a>查看我最近读过的书）。欢迎关注[我的豆瓣](https://www.douban.com/people/PRICE_WANG/)
 
 如果你感兴趣的话，可以来看看我写的[书评]({{ site.baseurl }}/#书评)，以及各种[测评]({{ site.baseurl }}/#测评)
 
