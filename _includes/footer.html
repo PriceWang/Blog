@@ -116,6 +116,19 @@
 <!--网站统计-->
 <!--<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>-->
 
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="{{ "/js/APlayer.min.js" | prepend: site.baseurl }}"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+<meting-js
+    auto="https://music.163.com/#/song?id=453927771"
+    fixed="true"
+    autoplay="true"
+    >
+</meting-js>
+
 <!-- jQuery -->
 <script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
 
