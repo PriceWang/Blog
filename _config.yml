@@ -26,6 +26,7 @@ facebook_username:  price.wang
 highlighter: rouge
 textColor: #FF0000
 permalink: pretty
+paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 # If you have timezone issue (e.g. #68) in China, uncomment to use this:
@@ -38,10 +39,13 @@ b2t: true
 # from PR#40, to support local preview for Jekyll 3.0
 # make sure you have this gem installed
 # `$ gem install jekyll-paginate`
-# plugins: [jekyll-sitemap]
-# gems: [jekyll-sitemap]
-
-
+plugins: 
+    - jekyll-paginate
+    - jekyll-sitemap
+gems: 
+    - jekyll-sitemap
+    - jekyll-paginate
+paginate_path: "page:num"   #分页页面路径格式
 
 # Markdown settings
 # replace redcarpet to kramdown,
@@ -62,7 +66,13 @@ kramdown:
 # Netease settings
 netease_comment: false
 
-
+# gitalk:
+#   enable: true
+#   owner: yizibi
+#   clientID: 3e12c08c2ec52afbcb30
+#   clientSecret: c2a74d279e7b42cf782a1d2d1b5a410d27c5ab57
+#   repo: yizibi.github.io
+#   admin: yizibi
 
 # Analytics settings
 # Baidu Analytics 

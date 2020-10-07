@@ -11,17 +11,17 @@
 
 我的社交账号ID基本都叫等候堤防，出自林宥嘉的心酸：校门口老地方，我是等候堤防~
 
-士不可一日无书（可以到<a href="http://book.douban.com/people/PRICE_WANG/collect" target="_blank">豆瓣读书</a>查看我最近读过的书）。欢迎关注[我的豆瓣](https://www.douban.com/people/PRICE_WANG/)
+士不可一日无书（可以到<a href="http://book.douban.com/people/PRICE_WANG/collect" target="_blank">豆瓣读书</a>查看我最近读过的书）。欢迎关注<a href="https://www.douban.com/people/PRICE_WANG/" target="_blank">我的豆瓣</a>
 
-如果你感兴趣的话，可以来看看我写的[书评]({{ site.baseurl }}/#书评)，以及各种[测评]({{ site.baseurl }}/#测评)
+如果你感兴趣的话，可以来看看我写的[书评]({{ site.baseurl }}/tags/#书评)，以及各种[测评]({{ site.baseurl }}/tags/#测评)
 
 如果我的博客或者开源项目对你有帮助，或者觉得这哥们挺有意思，或者有钱任性，愿意打赏我一本书，或者为下一测评提供帮助的话，本人先行谢过
 
 我现在想读的书可以在<a href="https://book.douban.com/people/PRICE_WANG/wish" target="_blank">愿望单</a>中找到
 
-也可以追匿我的[ins](https://instagram.com/{{ site.ins_username }})查看最新的收集计划
+也可以追匿我的<a href="https://instagram.com/{{ site.ins_username }}" target="_blank">ins</a>查看最新的收集计划
 
-如果你想在圣诞节收到我自己做的明信片，可以<a href="">给我发邮件</a>，附上打赏时间，告知你的地址邮编收件人即可
+如果你想在圣诞节收到我自己做的明信片，可以<a target="_blank" href="{{ site.email }}">给我发邮件</a>，附上打赏时间，告知你的地址邮编收件人即可
 
 > 打赏方式
 
