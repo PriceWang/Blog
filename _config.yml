@@ -41,9 +41,9 @@ b2t: true
 # `$ gem install jekyll-paginate`
 plugins: 
     - jekyll-paginate
-    - jekyll-sitemap
+    # - jekyll-sitemap
 gems: 
-    - jekyll-sitemap
+    # - jekyll-sitemap
     - jekyll-paginate
 paginate_path: "page:num"   #分页页面路径格式
 
