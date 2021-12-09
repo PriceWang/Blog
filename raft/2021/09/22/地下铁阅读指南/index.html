@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!--
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords"  content="Price, 王有声音, 博客, 个人网站">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:title" content="地下铁阅读指南 - Voice of Price | 王有声音">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="本文详细分享与分析本人在通勤、出行、排队时的阅读经历和感受
+">
+    
+    <meta property="article:published_time" content="2021-09-22T18:29:40Z">
+    
+    
+    <meta property="article:author" content="Price Wang">
+    
+    
+    <meta property="article:tag" content="生活">
+    
+    
+    <meta property="og:image" content="http://localhost:4000img/price.jpg">
+    <meta property="og:url" content="http://localhost:4000/2021/09/22/%E5%9C%B0%E4%B8%8B%E9%93%81%E9%98%85%E8%AF%BB%E6%8C%87%E5%8D%97/">
+    <meta property="og:site_name" content="Voice of Price | 王有声音">
+    -->
+    
+    <title>地下铁阅读指南 - Voice of Price | 王有声音</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/blog/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/blog/2021/09/22/%E5%9C%B0%E4%B8%8B%E9%93%81%E9%98%85%E8%AF%BB%E6%8C%87%E5%8D%97/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/price-blog.css">
+
+    <!-- Dinosaur CSS -->
+    <link rel="stylesheet" href="/blog/css/dinosaur.css">
+
+    <!-- Custom Fonts -->
+    <!-- Price change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
+
+</head>
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">Voice of Price</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="http:\\www.pricewang.art" target="_blank">Main Site</a>
+                    </li>
+                    <li>
+                        <a href="/blog/">Blog Home</a>
+                    </li>
+                    <li>
+                        <a href="/blog/about">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="/blog/tags">TAGS</a>
+                    </li>
+                    <li>
+                        <a href="/blog/archive">ARCHIVE</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <head>
+    <link href="/blog/css/rouge.css" rel="stylesheet">
+</head>
+<!-- 大图浏览 -->
+<link href="/blog/css/imageContent.css" rel="stylesheet">
+
+<style type="text/css">
+    header.intro-header{
+        background-repeat:no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        
+        background-image: url('/blog/img/post/地下铁阅读指南/bg.jpg')
+        
+    }
+
+    
+    header.intro-header .header-mask{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0,0,0, 0.8);
+    }
+    
+    .image-cover-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  position: fixed;
+  z-index: 30;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+  transition: opacity ease 0.3s;
+  pointer-events: none;
+}
+
+.model-shown {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.image-cover-modal-content {
+  display: block;
+  width: auto;
+  height: auto;
+}
+.post_img{
+    cursor: pointer;
+}  
+</style>
+
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#生活" title="生活">生活</a>
+                        
+                    </div>
+                    <h1>地下铁阅读指南</h1>
+                    
+                    
+                    <h2 class="subheading"></h2>
+                    
+                    <span class="meta">Posted by Price Wang on September 22, 2021</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <!--
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <span id="busuanzi_container_site_pv">本文阅读量 <span id="busuanzi_value_site_pv"></span></span>
+                -->
+				<p>本文详细分享与分析本人在通勤、出行、排队时的阅读经历和感受</p>
+
+<p>来北京一个月了，地铁已成为我远途出行的唯一选择。每每乘车，人们或是低头畅游网络，亦或是昂首漫步梦乡，纸质阅读成为了一件稀罕事。于我而言，乘地铁出行的频率日益升高，而视力不佳和用眼过度又使得自己不得不控制看屏幕的时间，因此，地铁阅读自然成为上乘之选</p>
+
+<p>公共环境下的阅读需要随机应变，也应有所选择。北京地铁纵横交错，每一条线路状态和繁忙程度大不相同。譬如1号线，列车在行进过程中晃动幅度大，在这种条件下想要站着看书实属不易。即便是新建的线路，不同时间的情况也是相去甚远。14号线，北工大西门站位于全线中部，日常时间基本没有空余座位，但不算拥挤，倘若能倚着车门或是扶手，那么阅读体验也算不错。至于早晚高峰，在人挤人前胸贴后背的场合看书，就分外艰辛了，站立空间十分有限，为了快捷的翻阅，我不得不双手捧书，双脚支开，稳住下盘，不时抵御路人的推搡和侵扰。在公共交通中寻得一坐之地实乃幸事，每逢此时我都端坐在席稳如泰山，将书本平摊在大腿上，有条不紊，不慌不忙</p>
+
+<p>除去乘车时间，排队候车的时候也是看书的好时机。通常我都会找一个地方靠着，可能是屏蔽门，可能是柱子或墙壁，反复体验之后，得出了一些结论：圆柱子靠着没有方柱子舒服，不过接触面积小，靠着不会觉得冰凉，更重要的是弄脏衣服的几率更小。在站台看书，不时会有路人走过，倘若正值人流量大的时候，我就不得不反复变换身姿，以供他人行进。在换乘其他线路的时候就暂停一下，走路看书不是什么好事，攥在手中也不是很舒服，还是把书收回包里吧</p>
+
+<p>公共场合人员密集，环境嘈杂，此时，书本的选择就尤为重要。小说以及一些杂文是最适合在这种场合阅读的了，我在地铁上看完的第一本书是《乌克兰拖拉机简史》，一部幽默的轻小说，讲述的是乌克兰移民的故事。看故事类型的书，外界的干扰并不会对阅读造成根本性的影响，沉浸在故事当中，反而有助于缓解旅途的疲惫。《目光》（强烈安利此书），作者是朝阳医院暴力伤医受害者陶勇，此书记叙描写了案件发生前和发生后的心路历程。在地铁上我粗略的看完了整本书，只觉是囫囵吞枣，后来便又静心看了一遍。并不是说在地铁上做了无用功，此类书如同诗词歌赋，初次阅读带来的是“竟然这样”的感叹，思考沉淀后方能拥有“悟到了些什么”的体会。技术分享、专业指导类的书万万不能在地铁上看，《白话投资——基金入门与进阶使用指南》便是其一，我在地铁上看了一个章节，看着那些名词和数字只觉得头晕目眩，上一秒的内容忘得一干二净了。看这些书就如同看文献读paper一样，还是老老实实的坐在桌前，做笔记绘脑图吧</p>
+
+<p>写这篇文章并不是说在地铁上一定要看书，也不是说一定要在地铁上看书，只是说一个自己挤出时间和精力的方法，有时我会想，信号和屏幕已经占据了生活中大多数的时间，或许可以，也需要空出一部分留给朴实的纸张</p>
+
+
+                <hr style="visibility: hidden;">
+
+                <div style="margin: 20px auto; width: 90%; text-align: center;"><p>☛请君入瓮☚</p></div>
+                <div style="margin: auto; width: 80px;"><a href="/blog/reward/">
+                    <img src="/blog/img/payimg/reward.png" style="width: 80px; cursor: pointer" />
+                </a></div>
+
+                <!--  上一篇或者下一篇post按钮 -->
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2021/09/08/%E9%A9%BB%E4%BA%AC%E5%8A%9E%E9%A4%90%E5%8E%85%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92-%E4%B8%80/" data-toggle="tooltip" data-placement="top" title="驻京办餐厅打卡计划（一）">
+                        Previous<br>
+                        <span>驻京办餐厅打卡计划（一）</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2021/10/12/%E4%BB%8E%E9%9B%B6%E5%AD%A6%E6%91%84%E5%BD%B1/" data-toggle="tooltip" data-placement="top" title="从零学摄影">
+                        Next<br>
+                        <span>从零学摄影</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+                <div class="comment">
+                    <script src='/blog/js/Valine.min.js'></script>
+                    <div id="vcomments"></div>
+                    <script>
+                        //var ran = Math.floor(Math.random()*5);
+                        //var set = new Array('identicon', 'monsterid', 'wavatar', 'robohash', 'retro');
+                        new Valine({
+                            el: '#vcomments',
+                            appId: 'okYgbxoGbXG7iIqFss8xsRJo-gzGzoHsz',
+                            appKey: 'tl337xntG2Qxz5Ux1CW6rG8L',
+                            //notify: true, // 邮件提醒!!!
+                            //verify: true, // 验证码
+                            placeholder: 'Artists Never Care About Comments',
+                            avatar: 'wavatar', // (''/mp/identicon/monsterid/wavatar/robohash/retro/hide)
+                            visitor: true
+                        })
+                    </script>
+                </div>
+                
+
+            </div>  
+
+            <!-- Side Catalog Container -->
+            
+
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/blog/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/blog/#生活" title="生活" rel="5">
+                                    生活
+                                </a>
+                            
+        				
+                            
+                				<a href="/blog/#笔记" title="笔记" rel="34">
+                                    笔记
+                                </a>
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+    
+
+    
+</article>
+<div id="image-cover-modal" class="image-cover-modal">
+	<img id="image-cover-image" class="image-cover-modal-content">
+  </div>
+  <script>
+  // Get the DOM
+  var modal = document.getElementById('image-cover-modal');
+  var modalImg = document.getElementById("image-cover-image");
+  var span = document.getElementsByClassName("image-cover-close")[0];
+  var postimg = document.getElementsByClassName("post_img");
+  
+  // When the user clicks on <span> (x), close the modal
+  modal.onclick = function() {
+	  this.classList.remove("model-shown");
+  }
+  
+  var i;
+  for (i = 0; i < postimg.length; i++) {
+  
+	  // Get the image and insert it inside the modal - use its "alt" text as a caption
+	  var img = postimg[i];
+      img.onclick = function(){
+		    modal.classList.add("model-shown");
+		    modalImg.src = this.src;
+	    }
+    
+
+  }
+  </script>
+
+<!-- Add support for Mathjax by Voleking-->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<!--
+Author: Ray-Eldath
+refer to:
+ - https://github.com/theme-next/hexo-theme-next/blob/master/source/js/src/utils.js
+ - https://jingyan.baidu.com/article/b2c186c83ec846c46ef6ff80.html
+ - http://www.bkjia.com/jQuery/449205.html
+-->
+<style media="screen">
+  .scroll {
+    z-index: 10000;
+    display: none;
+    height: 24px;
+    background: #222;
+    color: #fff;
+    line-height: 24px;
+    text-align: center;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+</style>
+<div class="scroll">
+  <i class="fa fa-arrow-up" style="margin-left: 4px"></i>
+  <span class="scrollpercent" style="margin-left: -2px"></span>
+  <span style="margin-left: -4px; margin-right: 4px">%</span>
+</div>
+
+<script src="/blog/js/util.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    if (utils.isMobile()) {
+      $('.scroll').hide();
+      return;
+    }
+    $(window).scroll(function() {
+      let scrollValue = $(window).scrollTop();
+      var scrollPercentRounded = Math.round((scrollValue / utils.getContentVisibilityHeight()) * 100);
+      var scrollPercentMaxed = (scrollPercentRounded > 100) ? 100 : scrollPercentRounded;
+      $('.scrollpercent').html(scrollPercentMaxed);
+      scrollValue > 100 ? $('.scroll').fadeIn() : $('.scroll').fadeOut();
+    });
+    $('.scroll').click(function() {
+      $('html, body').animate({
+        scrollTop: 0
+      }, 300);
+    })
+  })
+</script>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://twitter.com/WangPrice">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://instagram.com/price_wang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/wangprice">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/price.wang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/PriceWang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/guoxinwang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="mailto:helloprice@pricewang.art">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <p class="copyright text-muted">
+<!--                  本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次-->
+                    <span class="site-pv" title="总点击量">
+                    <img src="/blog/img/vendor/octicons/svg/eye.svg" width="16" height="16">
+                    <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <span class="page-pv"title="本页面点击量">
+                    <img src="/blog/img/vendor/octicons/svg/file-text.svg" width="12" height="16">
+                    <span class="busuanzi-value" id="busuanzi_value_page_pv"></span></span>
+                    <br>
+                    Copyright &copy; <em>Price Wang</em> 2021
+                    <br>
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+<!--网站统计-->
+<!--<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>-->
+
+<script>
+    ap = null
+    Object.defineProperty(document.querySelector('meting-js'),"aplayer",{
+        set: function(aplayer) {
+            ap=aplayer
+            ready();
+        }
+    });
+    
+    isRecover = false;
+    function ready(){
+        ap.on('canplay', function () {
+            if(!isRecover){
+                if(localStorage.getItem("musicIndex") != null){
+                    musicIndex = localStorage.getItem("musicIndex");
+                    musicTime = localStorage.getItem("musicTime");
+                    if(ap.list.index != musicIndex){
+                        ap.list.switch(musicIndex);
+                    }else{
+                        ap.seek(musicTime);
+                        ap.play();
+                        localStorage.clear();
+                        isRecover = true;
+                    }
+                }else{
+                    isRecover = true;
+                }
+            }
+        });
+    }
+
+    window.onbeforeunload = function(event) {
+        if(!ap.audio.paused){
+            musicIndex = ap.list.index;
+            musicTime = ap.audio.currentTime;
+            localStorage.setItem("musicIndex",musicIndex);
+            localStorage.setItem("musicTime",musicTime);
+        }
+    };
+</script>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/price-blog.min.js "></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<!-- Side Catalog -->
+
+
+<!-- Multi-Lingual -->
+
+
+
+
+<script src="/blog/js/jquery.min.js"></script>
+
+<style>
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.333%;
+	height: 0;
+    background: black;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+    border: 0;
+}    
+</style>
+
+<script>
+function get_youtube_id(url) {
+    var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    return (url.match(p)) ? RegExp.$1 : false;
+}
+function vimeo_embed(url,el) {
+    var id = false;
+    $.ajax({
+      url: 'https://vimeo.com/api/oembed.json?url='+url,
+      async: true,
+      success: function(response) {
+        if(response.video_id) {
+          id = response.video_id;
+          if(url.indexOf('autoplay=1') !== -1) var autoplay=1; else var autoplay=0;
+          if(url.indexOf('loop=1') !== -1) var loop=1; else var loop=0;
+          var theInnerHTML = '<div class="videoWrapper"><iframe src="https://player.vimeo.com/video/'+id+'/?byline=0&title=0&portrait=0';
+          if(autoplay==1) theInnerHTML += '&autoplay=1';
+          if(loop==1) theInnerHTML += '&loop=1';
+          theInnerHTML += '" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>'; 
+          el.innerHTML = theInnerHTML;
+        }
+      }
+    });
+}
+function video_embed() {
+    var p = document.getElementsByTagName('p');
+    for(var i = 0; i < p.length; i++) {
+        //check if this is an external url (that starts with https:// or http://
+        if (p[i].innerHTML.indexOf("http://") == 0 ||
+            p[i].innerHTML.indexOf("https://") == 0) {
+            var youtube_id = get_youtube_id(p[i].innerHTML);
+            if(youtube_id) {
+                if(p[i].innerHTML.indexOf('autoplay=1') !== -1) var autoplay=1; else var autoplay=0;
+                if(p[i].innerHTML.indexOf('loop=1') !== -1) var loop=1; else var loop=0;
+                var theInnerHTML = '<div class="videoWrapper"><iframe width="720" height="420" src="https://www.youtube.com/embed/' + youtube_id + '?rel=0&showinfo=0';
+                if(autoplay==1) theInnerHTML += '&autoplay=1';
+                if(loop==1) theInnerHTML += '&loop=1&playlist='+youtube_id+'&version=3';
+                theInnerHTML += '" frameborder="0" allowfullscreen></iframe></div>';
+                p[i].innerHTML = theInnerHTML;
+            }
+            if(p[i].innerHTML.indexOf('vimeo.com') !== -1) {
+                //ask vimeo for the id and place the embed
+                vimeo_embed(p[i].innerHTML,p[i]);
+            }
+        }
+    }
+}
+video_embed();
+
+function mp3_embed() {
+    var p = document.getElementsByTagName('p');
+    for(var i = 0; i < p.length; i++) {
+        if(p[i].innerHTML.indexOf('.mp3') !== -1) {
+            var str = p[i].innerHTML.split('?');
+            if(str.length == 1) str[1] = '';
+            var str1 = str[1];
+            str1 = str1.replace('&','').replace('&','');
+            str1 = str1.replace('autoplay=1','').replace('autoplay=0','');
+            str1 = str1.replace('loop=1','').replace('loop=0','');
+            str1 = str1.replace('controls=0','').replace('controls=1','');
+
+            if (str[0].lastIndexOf('.mp3', str[0].length - 4) === str[0].length - 4 && str1.length == 0) {
+                if(str[1].indexOf('autoplay=1') !== -1) var autoplay=1; else var autoplay=0;
+                if(str[1].indexOf('loop=1') !== -1) var loop=1; else var loop=0;
+                if(str[1].indexOf('controls=0') !== -1) var controls=0; else var controls=1;
+                var newInnerHTML = '<audio';
+                if(autoplay==1) newInnerHTML += ' autoplay';
+                if(loop==1) newInnerHTML += ' loop';
+                if(controls==1) newInnerHTML += ' controls';
+                newInnerHTML += '><source src="'+str[0]+'" type="audio/mpeg">Your browser does not support the audio element.</audio>';
+                p[i].innerHTML = newInnerHTML;
+            }
+        }
+    }
+}
+mp3_embed();
+</script>
+<script type="text/javascript" color="238,205,205" opacity='1' zIndex="-1" count="200" src="/blog/js/canvas-nest.min.js"></script>
+
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/blog/js/src/love.js"></script>
+
+</body>
+
+</html>

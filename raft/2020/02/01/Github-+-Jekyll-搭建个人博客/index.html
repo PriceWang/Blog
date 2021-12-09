@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!--
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords"  content="Price, 王有声音, 博客, 个人网站">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:title" content="GitHub + Jekyll 搭建个人博客 - Voice of Price | 王有声音">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="本文将详细介绍本站的搭建过程，包括 GitHub Pages 设置和部署，Jekyll 安装使用，功能模块整入，CDN 加速。欢迎大家 star 本站源码改造成属于你的个人网站
+">
+    
+    <meta property="article:published_time" content="2020-02-01T14:32:24Z">
+    
+    
+    <meta property="article:author" content="Price Wang">
+    
+    
+    <meta property="article:tag" content="教程">
+    
+    <meta property="article:tag" content="前端">
+    
+    
+    <meta property="og:image" content="http://localhost:4000img/price.jpg">
+    <meta property="og:url" content="http://localhost:4000/2020/02/01/Github-+-Jekyll-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+    <meta property="og:site_name" content="Voice of Price | 王有声音">
+    -->
+    
+    <title>GitHub + Jekyll 搭建个人博客 - Voice of Price | 王有声音</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/blog/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/blog/2020/02/01/Github-+-Jekyll-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/price-blog.css">
+
+    <!-- Dinosaur CSS -->
+    <link rel="stylesheet" href="/blog/css/dinosaur.css">
+
+    <!-- Custom Fonts -->
+    <!-- Price change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
+
+</head>
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">Voice of Price</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="http:\\www.pricewang.art" target="_blank">Main Site</a>
+                    </li>
+                    <li>
+                        <a href="/blog/">Blog Home</a>
+                    </li>
+                    <li>
+                        <a href="/blog/about">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="/blog/tags">TAGS</a>
+                    </li>
+                    <li>
+                        <a href="/blog/archive">ARCHIVE</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <head>
+    <link href="/blog/css/rouge.css" rel="stylesheet">
+</head>
+<!-- 大图浏览 -->
+<link href="/blog/css/imageContent.css" rel="stylesheet">
+
+<style type="text/css">
+    header.intro-header{
+        background-repeat:no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        
+        background-image: url('/blog/img/post/GitHub + Jekyll 搭建个人博客/bg.jpg')
+        
+    }
+
+    
+    header.intro-header .header-mask{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0,0,0, 0.8);
+    }
+    
+    .image-cover-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  position: fixed;
+  z-index: 30;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+  transition: opacity ease 0.3s;
+  pointer-events: none;
+}
+
+.model-shown {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.image-cover-modal-content {
+  display: block;
+  width: auto;
+  height: auto;
+}
+.post_img{
+    cursor: pointer;
+}  
+</style>
+
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#教程" title="教程">教程</a>
+                        
+                        <a class="tag" href="/blog/tags/#前端" title="前端">前端</a>
+                        
+                    </div>
+                    <h1>GitHub + Jekyll 搭建个人博客</h1>
+                    
+                    
+                    <h2 class="subheading">How Do I Make This Site</h2>
+                    
+                    <span class="meta">Posted by Price Wang on February 1, 2020</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <!--
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <span id="busuanzi_container_site_pv">本文阅读量 <span id="busuanzi_value_site_pv"></span></span>
+                -->
+				<p>本文将详细介绍本站的搭建过程，包括 GitHub Pages 设置和部署，Jekyll 安装使用，功能模块整入，CDN 加速。欢迎大家 <a href="https://github.com/PriceWang/blog">star</a> 本站源码改造成属于你的个人网站</p>
+
+<p>本教程适用于 Window 10 平台</p>
+
+<h2 id="github-pages">GitHub Pages</h2>
+
+<p>搭建一个可外网访问的网站，需要将其部署到服务器上，我们可以利用 GitHub Pages 来实现。GitHub Pages 是 GitHub 提供的一个网页寄存服务，可以用于存放静态网页，免费且无限流量。一般 GitHub Pages 的网站使用 github.io 的子域名，但是也可以使用第三方域名，只要按照一定的格式要求，将网站源码上传至 GitHub 仓库，那么在任何时候任何地方就都能够访问了</p>
+
+<h4 id="创建页面">创建页面</h4>
+
+<p>首先我们要做的是新建 GitHub Pages 页面，详细步骤如下</p>
+
+<blockquote>
+  <p>在 GitHub 上新建一个仓库，仓库名称格式为：<code class="language-plaintext highlighter-rouge">用户名.github.io</code>（如：PriceWang.github.io）</p>
+</blockquote>
+
+<p><img class="post_img" src="/blog/img/post/GitHub + Jekyll 搭建个人博客/创建仓库.jpg" title="创建仓库" /></p>
+
+<p>浏览器里访问 https://用户名.github.io/，发现这个 url 可以被访问了，你可以把改仓库 Pull 到本地，然后新建一个 index.html 的文件，输入任意内容，再把文件推送到 GitHub 上，访问该链接，可以发现 index.html 里面的内容已经被成功部署到服务器上了</p>
+
+<h4 id="自定义域名">自定义域名</h4>
+
+<p>现在，我们已经成功搭建了一个简单的网站并能够正常访问了，它的域名是 用户名.github.io，事实上，GitHub Pages 支持自定义域名，也就是说我们可以将其设置为自己的域名，你可以向各个域名服务商购买，我使用的是阿里云旗下的<a href="https://wanwang.aliyun.com/">万网</a>，在国内购买的话需要备案和实名认证，完成后进行如下操作</p>
+
+<blockquote>
+  <p>在 CMD 中用命令 <code class="language-plaintext highlighter-rouge">ping 用户名.github.io</code> 找到存放你的 GitHub Pages 的主机的 IP 地址，下图中红框内的就是我们要找的 IP 地址</p>
+</blockquote>
+
+<p><img class="post_img" src="/blog/img/post/GitHub + Jekyll 搭建个人博客/Ping命令.jpg" title="Ping 命令" /></p>
+
+<blockquote>
+  <p>在域名控制台选择解析并添加两条记录</p>
+</blockquote>
+
+<p><img class="post_img" src="/blog/img/post/GitHub + Jekyll 搭建个人博客/域名解析.jpg" title="域名控制台" /></p>
+
+<p><img class="post_img" src="/blog/img/post/GitHub + Jekyll 搭建个人博客/记录.jpg" title="添加记录" /></p>
+
+<blockquote>
+  <p>在 GitHub xxx.github.io 项目的设置页面中，滑动到下方，找到 GitHub Pages 这一栏，在 Custom Domain 填上刚刚添加解析的域名并保存</p>
+</blockquote>
+
+<p><img class="post_img" src="/blog/img/post/GitHub + Jekyll 搭建个人博客/自定义域名.jpg" title="自定义域名" /></p>
+
+<p>此时，已经可以使用自定义的域名访问 GitHub Pages 所提供的页面了</p>
+
+<h4 id="cdn-加速">CDN 加速</h4>
+
+<p>由于众所周知的原因，GitHub Pages 在国内访问速度可能会非常慢，我们可以用 CDN 来加速，我使用的是 <a href="https://www.cloudflare.com/">CloudFlare CDN</a> 加速页面访问</p>
+
+<p>使用 CloudFlare CDN 有以下好处</p>
+
+<ul>
+  <li>免费且快速的DNS服务（1分钟生效）</li>
+  <li>免费的SSL证书</li>
+  <li>限制某些地区的IP访问等操作</li>
+  <li>防止网络攻击</li>
+  <li>网站缓存和加速</li>
+  <li>一个cloudflare账户免费绑定多个网站</li>
+</ul>
+
+<h2 id="jekyll">Jekyll</h2>
+
+<p><a href="https://jekyllrb.com/">Jekyll</a> 是一个简单的，可识别 Blog 的静态站点生成器，支持自定义地址、博客分类、页面、文章以及自定义的布局设计，使用 Markdown、Liquid 和 HTML &amp; CSS 构建可发布的静态网站。我们可以通过 Jekyll 创建网站模板，实时修改模板里面的内容，并可以通过本地 url 预览改动后的效果。我们把这个 Blog 推送到上一步创建的代码仓库里，就可以访问到博客里面的内容了</p>
+
+<blockquote>
+  <p>下载并安装 <a href="https://rubyinstaller.org/downloads/">RubyInstaller</a></p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">注意</code>：Jekyll 暂不支持 Ruby 2.7，请下载 Ruby+Devkit 2.6.X 版本</p>
+
+<blockquote>
+  <p>下载并解压 <a href="https://rubygems.org/pages/download">RubyGems</a>，CMD执行：ruby setup.rb</p>
+</blockquote>
+
+<p><img class="post_img" src="/blog/img/post/GitHub + Jekyll 搭建个人博客/安装ruby.jpg" title="安装ruby" /></p>
+
+<blockquote>
+  <p>CMD 执行：gem install jekyll</p>
+</blockquote>
+
+<p><img class="post_img" src="/blog/img/post/GitHub + Jekyll 搭建个人博客/安装jekyll.jpg" title="安装jekyll" /></p>
+
+<blockquote>
+  <p>官网提供了大量<a href="http://jekyllthemes.org/">博客模板</a>，我们可以去挑选一个自己喜欢的博客模板，然后在这个基础上修改成满足自己需求的博客，CMD 执行 jekyll server 后可以开启本地服务器</p>
+</blockquote>
+
+<p><img class="post_img" src="/blog/img/post/GitHub + Jekyll 搭建个人博客/本地服务器.jpg" title="本地服务器" /></p>
+
+<p>到此我们完成了 Jekyll 的安装并选定了一个博客主题模板。Jekyll 的语法规则和具体使用方法都可以在<a href="https://jekyllrb.com/">官网</a>找到</p>
+
+<h2 id="功能模块">功能模块</h2>
+
+<p>我们可以使用第三方应用来丰富我们的博客</p>
+
+<h4 id="评论">评论</h4>
+
+<p>Jekyll 可应用的评论系统有很多，在此介绍 Disqus 和 Valine</p>
+
+<p><a href="https://disqus.com/">Disqus</a> 提供功能强大的第三评论系统，用户使用 Disqus，无需重复注册账号，只需使用 Disqus 账号或者第三方平台账号，即可方便的进行评论，且所有评论都会存储、保存在Disqus账号后台，方便随时查看、回顾。但由于众所周知的原因无法在国内使用</p>
+
+<p><a href="https://valine.js.org/">Valine</a> 是一款基于 LeanCloud 的快速、简洁且高效的无后端评论系统。按照官网文档进行设置，我们可以轻易地在博文中添加评论功能</p>
+
+<p>本站使用的是 Valine</p>
+
+<p>如果遇到什么问题，欢迎留言</p>
+
+
+                <hr style="visibility: hidden;">
+
+                <div style="margin: 20px auto; width: 90%; text-align: center;"><p>☛请君入瓮☚</p></div>
+                <div style="margin: auto; width: 80px;"><a href="/blog/reward/">
+                    <img src="/blog/img/payimg/reward.png" style="width: 80px; cursor: pointer" />
+                </a></div>
+
+                <!--  上一篇或者下一篇post按钮 -->
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2020/03/30/%E5%81%87%E8%AE%BE%E4%BB%96%E6%88%96%E4%BC%9A%E5%9C%A8%E6%97%81/" data-toggle="tooltip" data-placement="top" title="假设他或会在旁">
+                        Next<br>
+                        <span>假设他或会在旁</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+                <div class="comment">
+                    <script src='/blog/js/Valine.min.js'></script>
+                    <div id="vcomments"></div>
+                    <script>
+                        //var ran = Math.floor(Math.random()*5);
+                        //var set = new Array('identicon', 'monsterid', 'wavatar', 'robohash', 'retro');
+                        new Valine({
+                            el: '#vcomments',
+                            appId: 'okYgbxoGbXG7iIqFss8xsRJo-gzGzoHsz',
+                            appKey: 'tl337xntG2Qxz5Ux1CW6rG8L',
+                            //notify: true, // 邮件提醒!!!
+                            //verify: true, // 验证码
+                            placeholder: 'Artists Never Care About Comments',
+                            avatar: 'wavatar', // (''/mp/identicon/monsterid/wavatar/robohash/retro/hide)
+                            visitor: true
+                        })
+                    </script>
+                </div>
+                
+
+            </div>  
+
+            <!-- Side Catalog Container -->
+            
+                <div class="
+                    col-lg-2 col-lg-offset-0
+                    visible-lg-block
+                    sidebar-container
+                    catalog-container">
+                    <div class="side-catalog">
+                        <hr class="hidden-sm hidden-xs">
+                        <h5>
+                            <a class="catalog-toggle" href="#">CATALOG</a>
+                        </h5>
+                        <ul class="catalog-body"></ul>
+                    </div>
+                </div>
+            
+
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/blog/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/blog/#生活" title="生活" rel="5">
+                                    生活
+                                </a>
+                            
+        				
+                            
+                				<a href="/blog/#笔记" title="笔记" rel="34">
+                                    笔记
+                                </a>
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+    
+
+    
+</article>
+<div id="image-cover-modal" class="image-cover-modal">
+	<img id="image-cover-image" class="image-cover-modal-content">
+  </div>
+  <script>
+  // Get the DOM
+  var modal = document.getElementById('image-cover-modal');
+  var modalImg = document.getElementById("image-cover-image");
+  var span = document.getElementsByClassName("image-cover-close")[0];
+  var postimg = document.getElementsByClassName("post_img");
+  
+  // When the user clicks on <span> (x), close the modal
+  modal.onclick = function() {
+	  this.classList.remove("model-shown");
+  }
+  
+  var i;
+  for (i = 0; i < postimg.length; i++) {
+  
+	  // Get the image and insert it inside the modal - use its "alt" text as a caption
+	  var img = postimg[i];
+      img.onclick = function(){
+		    modal.classList.add("model-shown");
+		    modalImg.src = this.src;
+	    }
+    
+
+  }
+  </script>
+
+<!-- Add support for Mathjax by Voleking-->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<!--
+Author: Ray-Eldath
+refer to:
+ - https://github.com/theme-next/hexo-theme-next/blob/master/source/js/src/utils.js
+ - https://jingyan.baidu.com/article/b2c186c83ec846c46ef6ff80.html
+ - http://www.bkjia.com/jQuery/449205.html
+-->
+<style media="screen">
+  .scroll {
+    z-index: 10000;
+    display: none;
+    height: 24px;
+    background: #222;
+    color: #fff;
+    line-height: 24px;
+    text-align: center;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+</style>
+<div class="scroll">
+  <i class="fa fa-arrow-up" style="margin-left: 4px"></i>
+  <span class="scrollpercent" style="margin-left: -2px"></span>
+  <span style="margin-left: -4px; margin-right: 4px">%</span>
+</div>
+
+<script src="/blog/js/util.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    if (utils.isMobile()) {
+      $('.scroll').hide();
+      return;
+    }
+    $(window).scroll(function() {
+      let scrollValue = $(window).scrollTop();
+      var scrollPercentRounded = Math.round((scrollValue / utils.getContentVisibilityHeight()) * 100);
+      var scrollPercentMaxed = (scrollPercentRounded > 100) ? 100 : scrollPercentRounded;
+      $('.scrollpercent').html(scrollPercentMaxed);
+      scrollValue > 100 ? $('.scroll').fadeIn() : $('.scroll').fadeOut();
+    });
+    $('.scroll').click(function() {
+      $('html, body').animate({
+        scrollTop: 0
+      }, 300);
+    })
+  })
+</script>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://twitter.com/WangPrice">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://instagram.com/price_wang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/wangprice">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/price.wang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/PriceWang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/guoxinwang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="mailto:helloprice@pricewang.art">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <p class="copyright text-muted">
+<!--                  本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次-->
+                    <span class="site-pv" title="总点击量">
+                    <img src="/blog/img/vendor/octicons/svg/eye.svg" width="16" height="16">
+                    <span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <span class="page-pv"title="本页面点击量">
+                    <img src="/blog/img/vendor/octicons/svg/file-text.svg" width="12" height="16">
+                    <span class="busuanzi-value" id="busuanzi_value_page_pv"></span></span>
+                    <br>
+                    Copyright &copy; <em>Price Wang</em> 2021
+                    <br>
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+<!--网站统计-->
+<!--<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>-->
+
+<script>
+    ap = null
+    Object.defineProperty(document.querySelector('meting-js'),"aplayer",{
+        set: function(aplayer) {
+            ap=aplayer
+            ready();
+        }
+    });
+    
+    isRecover = false;
+    function ready(){
+        ap.on('canplay', function () {
+            if(!isRecover){
+                if(localStorage.getItem("musicIndex") != null){
+                    musicIndex = localStorage.getItem("musicIndex");
+                    musicTime = localStorage.getItem("musicTime");
+                    if(ap.list.index != musicIndex){
+                        ap.list.switch(musicIndex);
+                    }else{
+                        ap.seek(musicTime);
+                        ap.play();
+                        localStorage.clear();
+                        isRecover = true;
+                    }
+                }else{
+                    isRecover = true;
+                }
+            }
+        });
+    }
+
+    window.onbeforeunload = function(event) {
+        if(!ap.audio.paused){
+            musicIndex = ap.list.index;
+            musicTime = ap.audio.currentTime;
+            localStorage.setItem("musicIndex",musicIndex);
+            localStorage.setItem("musicTime",musicTime);
+        }
+    };
+</script>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/price-blog.min.js "></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+
+        // interop with multilangual 
+        if ('' == 'true') {
+            _containerSelector = 'div.post-container.active'
+        } else {
+            _containerSelector = 'div.post-container'
+        }
+
+        // init
+        var P = $(_containerSelector),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/blog/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+<!-- Multi-Lingual -->
+
+
+
+
+<script src="/blog/js/jquery.min.js"></script>
+
+<style>
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.333%;
+	height: 0;
+    background: black;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+    border: 0;
+}    
+</style>
+
+<script>
+function get_youtube_id(url) {
+    var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    return (url.match(p)) ? RegExp.$1 : false;
+}
+function vimeo_embed(url,el) {
+    var id = false;
+    $.ajax({
+      url: 'https://vimeo.com/api/oembed.json?url='+url,
+      async: true,
+      success: function(response) {
+        if(response.video_id) {
+          id = response.video_id;
+          if(url.indexOf('autoplay=1') !== -1) var autoplay=1; else var autoplay=0;
+          if(url.indexOf('loop=1') !== -1) var loop=1; else var loop=0;
+          var theInnerHTML = '<div class="videoWrapper"><iframe src="https://player.vimeo.com/video/'+id+'/?byline=0&title=0&portrait=0';
+          if(autoplay==1) theInnerHTML += '&autoplay=1';
+          if(loop==1) theInnerHTML += '&loop=1';
+          theInnerHTML += '" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>'; 
+          el.innerHTML = theInnerHTML;
+        }
+      }
+    });
+}
+function video_embed() {
+    var p = document.getElementsByTagName('p');
+    for(var i = 0; i < p.length; i++) {
+        //check if this is an external url (that starts with https:// or http://
+        if (p[i].innerHTML.indexOf("http://") == 0 ||
+            p[i].innerHTML.indexOf("https://") == 0) {
+            var youtube_id = get_youtube_id(p[i].innerHTML);
+            if(youtube_id) {
+                if(p[i].innerHTML.indexOf('autoplay=1') !== -1) var autoplay=1; else var autoplay=0;
+                if(p[i].innerHTML.indexOf('loop=1') !== -1) var loop=1; else var loop=0;
+                var theInnerHTML = '<div class="videoWrapper"><iframe width="720" height="420" src="https://www.youtube.com/embed/' + youtube_id + '?rel=0&showinfo=0';
+                if(autoplay==1) theInnerHTML += '&autoplay=1';
+                if(loop==1) theInnerHTML += '&loop=1&playlist='+youtube_id+'&version=3';
+                theInnerHTML += '" frameborder="0" allowfullscreen></iframe></div>';
+                p[i].innerHTML = theInnerHTML;
+            }
+            if(p[i].innerHTML.indexOf('vimeo.com') !== -1) {
+                //ask vimeo for the id and place the embed
+                vimeo_embed(p[i].innerHTML,p[i]);
+            }
+        }
+    }
+}
+video_embed();
+
+function mp3_embed() {
+    var p = document.getElementsByTagName('p');
+    for(var i = 0; i < p.length; i++) {
+        if(p[i].innerHTML.indexOf('.mp3') !== -1) {
+            var str = p[i].innerHTML.split('?');
+            if(str.length == 1) str[1] = '';
+            var str1 = str[1];
+            str1 = str1.replace('&','').replace('&','');
+            str1 = str1.replace('autoplay=1','').replace('autoplay=0','');
+            str1 = str1.replace('loop=1','').replace('loop=0','');
+            str1 = str1.replace('controls=0','').replace('controls=1','');
+
+            if (str[0].lastIndexOf('.mp3', str[0].length - 4) === str[0].length - 4 && str1.length == 0) {
+                if(str[1].indexOf('autoplay=1') !== -1) var autoplay=1; else var autoplay=0;
+                if(str[1].indexOf('loop=1') !== -1) var loop=1; else var loop=0;
+                if(str[1].indexOf('controls=0') !== -1) var controls=0; else var controls=1;
+                var newInnerHTML = '<audio';
+                if(autoplay==1) newInnerHTML += ' autoplay';
+                if(loop==1) newInnerHTML += ' loop';
+                if(controls==1) newInnerHTML += ' controls';
+                newInnerHTML += '><source src="'+str[0]+'" type="audio/mpeg">Your browser does not support the audio element.</audio>';
+                p[i].innerHTML = newInnerHTML;
+            }
+        }
+    }
+}
+mp3_embed();
+</script>
+<script type="text/javascript" color="238,205,205" opacity='1' zIndex="-1" count="200" src="/blog/js/canvas-nest.min.js"></script>
+
+<!--鼠标点击爱心动画-->
+<script type="text/javascript" src="/blog/js/src/love.js"></script>
+
+</body>
+
+</html>
