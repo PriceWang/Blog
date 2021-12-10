@@ -1,15 +1,13 @@
 
-> 给Price打赏，让他写出更棒的作品！
+> 给 Price 打赏，让他写出更棒的作品！
 
 # 来人，赏~
 
-本人Price
+本人 Price Wang
 
 硬件攻城狮，自学程序猿，偏门爱好者
 
 活跃的 GitHub 用户，喜欢在业余时间捣腾些<a href="https://github.com/PriceWang" target="_blank">有意思的项目</a>
-
-我的社交账号ID基本都叫等候提防，出自林宥嘉的心酸：校门口老地方，我是等候提防~
 
 士不可一日无书（可以到<a href="http://book.douban.com/people/PRICE_WANG/collect" target="_blank">豆瓣读书</a>查看我最近读过的书）。欢迎关注<a href="https://www.douban.com/people/PRICE_WANG/" target="_blank">我的豆瓣</a>
 
