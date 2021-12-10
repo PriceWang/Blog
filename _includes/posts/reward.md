@@ -27,9 +27,7 @@
 
 用支付宝扫下面这个二维码可以用类似「点单」的方式送我书，interesting
 
-* 暂未开放
-
-<!-- <img src="{{ site.baseurl }}/img/pay-zhifubao.png" style="width:256px" /> -->
+<img src="{{ site.baseurl }}/img/payimg/zhifubao.png" style="width:256px" />
 
 ### 方法二：微信扫一扫
 
