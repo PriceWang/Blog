@@ -7,6 +7,7 @@ layout: default
 </head>
 <!-- 大图浏览 -->
 <link href="{{ site.baseurl }}/css/imageContent.css" rel="stylesheet">
+<link href="{{ site.baseurl }}/css/BeerSlider.css" rel="stylesheet">
 
 <style type="text/css">
     header.intro-header{
@@ -58,8 +59,10 @@ layout: default
 }
 .post_img{
     cursor: pointer;
-}  
+}
+
 </style>
+<script src="{{ site.baseurl }}/js/BeerSlider.js"></script>
 
 <header class="intro-header" >
     <div class="header-mask"></div>
@@ -258,6 +261,11 @@ layout: default
             font-size: 1.1em;
             margin-top : -0.1em;
         }
+    }
+    .m {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
 </style>
 {% endif %}
